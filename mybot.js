@@ -9,15 +9,18 @@ function make_move() {
        return TAKE;
    }
 
-   var rand = Math.random() * 4;
+   //board[get_my_x()][get_my_y() + 1]
 
+    var rand = Math.random() * 4;
+
+    function trace(board[get_my_x()][get_my_y()]);
    if (rand < 1) return NORTH;
    if (rand < 2) return SOUTH;
    if (rand < 3) return EAST;
    if (rand < 4) return WEST;
 
    return PASS;
-}
+} 
 
 // Optionally include this function if you'd like to always reset to a 
 // certain board number/layout. This is useful for repeatedly testing your
