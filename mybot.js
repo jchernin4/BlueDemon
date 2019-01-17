@@ -20,8 +20,13 @@ function make_move() {
        FruitDistances.push(board[CountX][CountY]);
        FruitPositions.push([CountX][CountY]);
        console.log(FruitPositions);
-       CountX = CountX + 1;
-       CountY = CountY + 1;
+       if(CountX < WIDTH){
+        CountX = CountX + 1;
+       }
+       else{
+        CountY = CountY + 1;
+        CountX = 0;
+       }
        Count = Count + 1;
    }
 
