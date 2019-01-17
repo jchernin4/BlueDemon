@@ -11,6 +11,8 @@
 
 *repeats until it finds best fruit
 
+*changes X or Y based off nearby fruit to the one it is heading for
+
 
 
 Possible (Move towards but not to)
