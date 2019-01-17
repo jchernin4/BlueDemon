@@ -29,3 +29,4 @@ function make_move() {
 //function default_board_number() {
 //    return 123;
 //}
+//test
