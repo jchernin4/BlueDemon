@@ -7,9 +7,11 @@
 
 *Calculates effectiveness of strategy
 
-*Checks distance vs opp. + rules out bad strategies
+*Checks distance vs opp. + rules out bad strategies (if distance is < or = opp.s)
 
 *repeats until it finds best fruit
+
+*changes X or Y based off nearby fruit to the one it is heading for
 
 
 
