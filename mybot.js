@@ -20,7 +20,7 @@ function make_move() {
    {
        FruitAvailable.push(board[CountX],[CountY]);
        FruitPositions.push(CountX, CountY);
-       console.log(FruitPositions);
+
        if(CountX < WIDTH){
         CountX = CountX + 1;
        }
@@ -30,6 +30,7 @@ function make_move() {
        }
        Count = Count + 1;
    }
+   console.log(FruitPositions);
 
    var rand = Math.random() * 4;
 
