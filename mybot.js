@@ -18,7 +18,7 @@ function make_move() {
    while(Count < (WIDTH * HEIGHT))
    {
        FruitDistances.push(board[CountX][CountY]);
-       FruitPositions.push([CountX][CountY]);
+       FruitPositions.push(CountX, CountY);
        console.log(FruitPositions);
        if(CountX < WIDTH){
         CountX = CountX + 1;
