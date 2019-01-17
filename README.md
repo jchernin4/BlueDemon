@@ -4,7 +4,7 @@
 5 - 3rd - 0.3 * Distance Factor * 1 if has under half , 0 if over half  
 
 
-
+console.log(get_my_x(), get_my_y());
 *Calculates effectiveness of strategy
 
 *Checks distance vs opp. + rules out bad strategies (if distance is < or = opp.s)
