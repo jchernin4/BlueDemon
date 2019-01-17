@@ -13,7 +13,7 @@ function make_move() {
 
     var rand = Math.random() * 4;
 
-    function trace(string = board[get_my_x()][get_my_y()]);
+    function trace(string = board[get_my_x()][get_my_y()])
    if (rand < 1) return NORTH;
    if (rand < 2) return SOUTH;
    if (rand < 3) return EAST;
