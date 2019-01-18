@@ -19,7 +19,7 @@ function make_move() {
    while(Count < (WIDTH * HEIGHT))
    {
        FruitAvailable.push(board[CountX],[CountY]);
-       FruitPositions.push(CountX, CountY);
+       FruitPositions.push('[${CountX}, ${CountY}]');
        if(CountX < WIDTH){
         CountX = CountX + 1;
        }
