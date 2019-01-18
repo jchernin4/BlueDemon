@@ -18,13 +18,8 @@ function make_move() {
    console.log(WIDTH);
    while(Count < (WIDTH * HEIGHT))
    {
-<<<<<<< HEAD
        FruitAvailable.push(board[CountX],[CountY]); // TO DO: Fix to show 1 or 0 instead of "Array(n)"
        FruitPositions.push(`[${CountX}, ${CountY}]`);
-=======
-       FruitAvailable.push(board[CountX],[CountY]);
-       FruitPositions.push('[${CountX}, ${CountY}]');
->>>>>>> fffe429690232560abdba87a49edec350f1ad827
        if(CountX < WIDTH){
         CountX = CountX + 1;
        }
