@@ -18,7 +18,7 @@ function make_move() {
    console.log(WIDTH);
    while(Count < (WIDTH * HEIGHT))
    {
-       FruitAvailable.push(board[CountX],[CountY]);
+       FruitAvailable.push(board[CountX],[CountY]); // TO DO: Fix to show 1 or 0 instead of "Array(n)"
        FruitPositions.push(`[${CountX}, ${CountY}]`);
        if(CountX < WIDTH){
         CountX = CountX + 1;
@@ -32,7 +32,7 @@ function make_move() {
    console.log(FruitPositions);
    console.log(FruitAvailable);
 
-   var rand = Math.random() * 4;
+   var rand = Math.random() * 4; // TO DO: Point towards fruit instead of random path generation
 
    if (rand < 1) return NORTH;
    if (rand < 2) return SOUTH;
