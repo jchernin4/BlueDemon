@@ -36,8 +36,6 @@ function make_move() {
    console.log(FruitPositions);
    console.log(FruitAvailable);
 
-   Count = 0;
-
    FruitAvailableFinal = [].concat.apply([], FruitAvailable);
 
    console.log(FruitAvailableFinal);
