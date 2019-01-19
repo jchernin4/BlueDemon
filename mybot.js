@@ -72,7 +72,7 @@ function make_move() {
    Count = 0;
 
    while(Count < FruitDistances.length){
-       if(board[FruitPositionsX[Count]][FruitPositionsY[Count]] > 0){
+       if(board[FruitPositionsX[Count]][FruitPositionsY[Count]]){
            ItemWeight.push(0.8/((.5 * get_total_item_count(FruitAvailableFinal[Count]))
             * (3/(.5 * FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
        }
@@ -99,19 +99,25 @@ function make_move() {
 
 
 
-   var rand = Math.random() * 4; // TO DO: Point towards fruit instead of random path generation
+   console.log("<=========== Moving Bot ===========>")
+   if (CurrentGoalX > get_my_x()) return EAST;
+   if (CurrentGoalX < get_my_x()) return WEST;
+   if (CurrentGoalY > get_my_y()) return SOUTH;
+   if (CurrentGoalY < get_my_y()) return NORTH;
+
+   /* var rand = Math.random() * 4; // TO DO: Point towards fruit instead of random path generation
 
    if (rand < 1) return NORTH;
    if (rand < 2) return SOUTH;
    if (rand < 3) return EAST;
-   if (rand < 4) return WEST;
+   if (rand < 4) return WEST; */
 
-   return PASS;
+   //return PASS;
 }
 
 // Optionally include this function if you'd like to always reset to a 
 // certain board number/layout. This is useful for repeatedly testing your
 // bot(s) against known positions. 
-function default_board_number() {
-    return 366434;
-}
+//function default_board_number() {
+//    return 366434;
+//}
