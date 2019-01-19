@@ -24,7 +24,7 @@ function make_move() {
         FruitAvailable.push(board[Count - 1])
        }
        FruitPositions.push(`[${CountX}, ${CountY}]`);
-       if(CountX < WIDTH + 1){
+       if(CountY < WIDTH + 1){
         CountY = CountY + 1;
        }
        else{
