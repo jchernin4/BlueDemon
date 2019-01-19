@@ -16,3 +16,12 @@ console.log(get_my_x(), get_my_y());
 
 
 Possible (Move towards but not to)
+
+
+
+
+# CURRENT OBJECTIVES
+
+*Multiply Weight By 0 if no item present
+*Create a Weight Array
+*Determine Largest Weight
