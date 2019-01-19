@@ -15,6 +15,7 @@ function make_move() {
    var FruitPositionsY = [];
    var FruitDistances = [];
    var ItemWeight = [];
+   var EnemyFruitDistances = [];
 
    var Count = 0;
    var CountX = 0;
@@ -57,10 +58,29 @@ function make_move() {
        DistanceX = (Math.abs((get_my_x() - FruitPositionsX[Count])));
        DistanceY = (Math.abs((get_my_y() - FruitPositionsY[Count])));
        FruitDistances.push((DistanceX + DistanceY + 0.01));
+       DistanceX = (Math.abs((get_opponent_x() - FruitPositionsX[Count])));
+       DistanceY = (Math.abs((get_opponent_y() - FruitPositionsY[Count])));
+       EnemyFruitDistances.push((DistanceX + DistanceY + 0.01));
        Count = Count + 1;
    }
    console.log("<=========== Logging FruitDistances ===========>");
    console.log(FruitDistances);
+
+   Count = 0;
+
+   while(Count < FruitDistances.length){
+       if(board[FruitPositionsX[Count]][FruitPositionsY[Count]]){
+           ItemWeight.push((0.8/(.5 * get_total_item_count(FruitAvailableFinal[Count])
+           ) * (3/(.5 * FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
+       }
+       else{
+        ItemWeight.push(0);
+       } 
+       Count = Count + 1;
+   }
+
+   console.log("<=========== Logging ItemWeights ===========>");
+   console.log(ItemWeight);
 
    var rand = Math.random() * 4; // TO DO: Point towards fruit instead of random path generation
 
