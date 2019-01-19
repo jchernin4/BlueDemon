@@ -72,7 +72,7 @@ function make_move() {
    Count = 0;
 
    while(Count < FruitDistances.length){
-       if(board[FruitPositionsX[Count]][FruitPositionsY[Count]]){
+       if(board[FruitPositionsX[Count]],[FruitPositionsY[Count]]){
            ItemWeight.push(0.8/((.5 * get_total_item_count(FruitAvailableFinal[Count]))
             * (3/(.5 * FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
        }
@@ -89,7 +89,7 @@ function make_move() {
 
    console.log("<=========== Logging ItemWeights ===========>");
    console.log(ItemWeight);
-   CurrentGoalWeight = (Math.max(...ItemWeight));
+   CurrentGoalWeight = (Math.max.apply(null, ItemWeight));
    CurrentGoalX = (FruitPositionsX[ItemWeight.indexOf(CurrentGoalWeight)]);
    CurrentGoalY = (FruitPositionsY[ItemWeight.indexOf(CurrentGoalWeight)]);
    console.log("<=========== Logging CurrentGoalWeight ===========>");
