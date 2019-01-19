@@ -14,6 +14,7 @@ function make_move() {
    var FruitPositionsX = [];
    var FruitPositionsY = [];
    var FruitDistances = [];
+   var ItemWeight = [];
 
    var Count = 0;
    var CountX = 0;
