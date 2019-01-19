@@ -28,7 +28,7 @@ function make_move() {
        }
        FruitPositionsX.push(CountX);
        FruitPositionsY.push(CountY);
-       if(CountY < WIDTH + 1){
+       if(CountY < WIDTH){
         CountY = CountY + 1;
        }
        else{
