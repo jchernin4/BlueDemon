@@ -11,7 +11,8 @@ function make_move() {
 
    var FruitAvailable = [];
    var FruitAvailableFinal = [];
-   var FruitPositions = [];
+   var FruitPositionsX = [];
+   var FruitPositionsY = [];
 
    var Count = 1;
    var CountX = 0;
@@ -23,7 +24,8 @@ function make_move() {
        if(Count < WIDTH + 1){
         FruitAvailable.push(board[Count - 1])
        }
-       FruitPositions.push(`[${CountX}, ${CountY}]`);
+       FruitPositionsX.push(CountX);
+       FruitPositionsY.push(CountY);
        if(CountY < WIDTH + 1){
         CountY = CountY + 1;
        }
@@ -33,7 +35,8 @@ function make_move() {
        }
        Count = Count + 1;
    }
-   console.log(FruitPositions);
+   console.log(FruitPositionsX);
+   console.log(FruitPositionsY);
    console.log(FruitAvailable);
 
    FruitAvailableFinal = [].concat.apply([], FruitAvailable);
