@@ -22,6 +22,9 @@ function make_move() {
    var CountY = 0;
    var DistanceX = 0;
    var DistanceY = 0;
+   var CurrentGoalWeight = 0;
+   var CurrentGoalX = 0;
+   var CurrentGoalY = 0;
 
    while(Count < (WIDTH * HEIGHT))
    {   
@@ -81,6 +84,13 @@ function make_move() {
 
    console.log("<=========== Logging ItemWeights ===========>");
    console.log(ItemWeight);
+   CurrentGoalWeight = (Math.max(...ItemWeight));
+   CurrentGoalX = (FruitPositionsX[ItemWeight.indexOf(CurrentGoalWeight)]);
+   CurrentGoalY = (FruitPositionsY[ItemWeight.indexOf(CurrentGoalWeight)]);
+   console.log(CurrentGoalWeight);
+   console.log(CurrentGoalX, CurrentGoalY);
+
+
 
    var rand = Math.random() * 4; // TO DO: Point towards fruit instead of random path generation
 
