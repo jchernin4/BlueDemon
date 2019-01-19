@@ -72,13 +72,18 @@ function make_move() {
    Count = 0;
 
    while(Count < FruitDistances.length){
-       if(board[FruitPositionsX[Count]][FruitPositionsY[Count]]){
-           ItemWeight.push((0.8/(.5 * get_total_item_count(FruitAvailableFinal[Count])
-           ) * (3/(.5 * FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
+       if(board[FruitPositionsX[Count]][FruitPositionsY[Count]] > 0){
+           ItemWeight.push(0.8/((.5 * get_total_item_count(FruitAvailableFinal[Count]))
+            * (3/(.5 * FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
        }
        else{
         ItemWeight.push(0);
        } 
+       if(isNaN(ItemWeight[Count]))
+       {
+        ItemWeight.splice(Count);
+        ItemWeight.push(0);
+       }
        Count = Count + 1;
    }
 
