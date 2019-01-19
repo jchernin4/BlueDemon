@@ -37,11 +37,11 @@ function make_move() {
        }
        Count = Count + 1;
    }
-   console.log("<============== Logging FruitPositionsX ==============>");
+   console.log("<=========== Logging FruitPositionsX ===========>");
    console.log(FruitPositionsX);
-   console.log("<============== Logging FruitPositionsY ==============>");
+   console.log("<=========== Logging FruitPositionsY ===========>");
    console.log(FruitPositionsY);
-   console.log("<============== Logging FruitsAvailable ==============>");
+   console.log("<=========== Logging FruitsAvailable ===========>");
    console.log(FruitAvailable);
 
 
@@ -58,7 +58,7 @@ function make_move() {
        FruitDistances.push((DistanceX + DistanceY + 0.01));
        Count = Count + 1;
    }
-   console.log("<============== Logging FruitDistances ==============>");
+   console.log("<=========== Logging FruitDistances ===========>");
    console.log(FruitDistances);
 
    var rand = Math.random() * 4; // TO DO: Point towards fruit instead of random path generation
