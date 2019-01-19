@@ -15,30 +15,32 @@ function make_move() {
    var FruitPositionsY = [];
    var FruitDistances = [];
 
-   var Count = 1;
+   var Count = 0;
    var CountX = 0;
    var CountY = 0;
-   var Distance = 0;
+   var DistanceX = 0;
+   var DistanceY = 0;
 
-   while(Count < (WIDTH * HEIGHT) + 1)
+   while(Count < (WIDTH * HEIGHT))
    {   
-       if(Count < WIDTH + 1){
-        FruitAvailable.push(board[Count - 1])
+       if(Count < WIDTH){
+        FruitAvailable.push(board[Count])
        }
        FruitPositionsX.push(CountX);
        FruitPositionsY.push(CountY);
        if(CountY < WIDTH + 1){
-        CountY++;
+        CountY = CountY + 1;
        }
        else{
-        CountX++;
+        CountX = CountX + 1;
         CountY = 0;
        }
-       Count++;
+       Count = Count + 1;
    }
    console.log(FruitPositionsX);
    console.log(FruitPositionsY);
    console.log(FruitAvailable);
+
 
    FruitAvailableFinal = [].concat.apply([], FruitAvailable);
 
@@ -46,13 +48,17 @@ function make_move() {
    
    Count = 0;
 
-   while(Count < (FruitPositionsX.length - 1))
+   while(Count < (WIDTH * HEIGHT))
    {
-       Distance = (Math.abs((get_my_x() - FruitPositionsX[Count]) + (get_my_y() - FruitPositionsY[Count])) + 0.01);
-       FruitDistances.push(Distance);
-       Count++;
+       DistanceX = (Math.abs((get_my_x() - FruitPositionsX[Count])));
+       DistanceY = (Math.abs((get_my_y() - FruitPositionsY[Count])));
+       console.log(DistanceX);
+       console.log(DistanceY);
+       FruitDistances.push((DistanceX + DistanceY + 0.01));
+       Count = Count + 1;
    }
 
+   console.log(FruitDistances);
 
    var rand = Math.random() * 4; // TO DO: Point towards fruit instead of random path generation
 
