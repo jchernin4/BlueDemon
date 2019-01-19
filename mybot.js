@@ -5,7 +5,7 @@ function make_move() {
    var board = get_board();
 
    // we found an item! take it!
-   if (board[get_my_x()][get_my_y()] > 0 && get_my_item_count(board[get_my_x()][get_my_y()]) <= (.5* get_total_item_count(board[get_my_x()][get_my_y()]))) {
+   if (board[get_my_x()][get_my_y()] > 0 && get_my_item_count(board[get_my_x()][get_my_y()]) <= (.5 * get_total_item_count(board[get_my_x()][get_my_y()]))) {
        return TAKE;
    }
 
@@ -13,12 +13,13 @@ function make_move() {
    var FruitAvailableFinal = [];
    var FruitPositionsX = [];
    var FruitPositionsY = [];
+   var FruitDistances = [];
 
    var Count = 1;
    var CountX = 0;
    var CountY = 0;
+   var Distance = 0;
 
-   console.log(WIDTH);
    while(Count < (WIDTH * HEIGHT) + 1)
    {   
        if(Count < WIDTH + 1){
@@ -42,6 +43,15 @@ function make_move() {
    FruitAvailableFinal = [].concat.apply([], FruitAvailable);
 
    console.log(FruitAvailableFinal);
+   
+   Count = 0;
+
+   while(Count < (FruitPositionsX.length - 1))
+   {
+       Distance = (Math.abs((get_my_x() - FruitPositionsX[Count]) + (get_my_y() - FruitPositionsY[Count])) + 0.01);
+       FruitDistances.push(Distance);
+       Count++;
+   }
 
 
    var rand = Math.random() * 4; // TO DO: Point towards fruit instead of random path generation
