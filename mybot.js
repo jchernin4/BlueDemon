@@ -89,7 +89,7 @@ function make_move() {
    CurrentGoalY = (FruitPositionsY[ItemWeight.indexOf(CurrentGoalWeight)]);
    console.log("<=========== Logging CurrentGoalWeight ===========>");
    console.log(CurrentGoalWeight);
-   console.log("<=========== Logging CurrentGoalX, CurrentGoalY ===========>");
+   console.log("<=========== Logging Next Position ===========>");
    console.log(CurrentGoalX, CurrentGoalY);
 
 
