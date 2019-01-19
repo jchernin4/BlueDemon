@@ -27,13 +27,13 @@ function make_move() {
        FruitPositionsX.push(CountX);
        FruitPositionsY.push(CountY);
        if(CountY < WIDTH + 1){
-        CountY = CountY + 1;
+        CountY++;
        }
        else{
-        CountX = CountX + 1;
+        CountX++;
         CountY = 0;
        }
-       Count = Count + 1;
+       Count++;
    }
    console.log(FruitPositionsX);
    console.log(FruitPositionsY);
