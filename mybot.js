@@ -87,7 +87,7 @@ function make_move() {
        if(isNaN(ItemWeight[Count]))
        {
         ItemWeight.splice(Count);
-        ItemWeight.push(0);
+        ItemWeight.push(-1);
        }
        Count = Count + 1;
    }
