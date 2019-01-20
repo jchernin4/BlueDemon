@@ -27,7 +27,7 @@ function make_move() {
    var CurrentGoalY = 0;
    var ItemWeightVar = 0;
 
-   while(Count < (WIDTH * HEIGHT - 1))
+   while(Count < (WIDTH * HEIGHT))
    {   
        if(Count < WIDTH){
         FruitAvailable.push(board[Count])
@@ -55,7 +55,7 @@ function make_move() {
 
    console.log(FruitAvailableFinal);
    
-   Count = 1;
+   Count = 0;
 
    while(Count < (WIDTH * HEIGHT))
    {
@@ -67,32 +67,40 @@ function make_move() {
        EnemyFruitDistances.push((DistanceX + DistanceY + 0.01));
        Count = Count + 1;
    }
+   FruitDistances.splice(Count);
    FruitDistances.push((DistanceX + DistanceY + 1.01));
    console.log("<=========== Logging FruitDistances ===========>");
    console.log(FruitDistances);
 
    Count = 0;
 
-   while(Count < FruitDistances.length){
-        ItemWeight.push((5/FruitDistances[Count]) * (3 * (get_my_item_count(board[FruitPositionsX[Count]][FruitPositionsY[Count]])/get_total_item_count(board[FruitPositionsX[Count]],[FruitPositionsY[Count]]))));
-        ItemWeightVar = ItemWeight[Count];
-        if(EnemyFruitDistances[Count]/FruitDistances[Count] < 1 || isNaN(EnemyFruitDistances[Count]/FruitDistances[Count]))
-        {
-            ItemWeight.splice(Count);
-            ItemWeight.push(ItemWeightVar * 0.5);
-        }   
-        else
-        {
-         ItemWeight.splice(Count);
-         ItemWeight.push(ItemWeightVar * 1.5);
+   while(Count < FruitDistances.length - 1){
+       if(FruitAvailableFinal[Count] != 0)
+       {
+            ItemWeight.push((5/FruitDistances[Count]) * (3 * get_total_item_count(FruitAvailableFinal[Count]))/((get_my_item_count(FruitAvailableFinal[Count]) + 0.01)));
+            ItemWeightVar = ItemWeight[Count];
+            if(EnemyFruitDistances[Count]/FruitDistances[Count] < 1 || isNaN(EnemyFruitDistances[Count]/FruitDistances[Count]))
+            {
+                ItemWeight.splice(Count);
+                ItemWeight.push(ItemWeightVar * 0.5);
+            }   
+            else
+            {
+             ItemWeight.splice(Count);
+             ItemWeight.push(ItemWeightVar * 1.5);
+            }
+       }
+       else
+       {
+            ItemWeight.push(0);
+            if(isNaN(ItemWeight[Count]))
+            {
+                ItemWeight.splice(Count);
+                ItemWeight.push(0);
+            }
         }
-        //if(isNaN(ItemWeight[Count]))
-        //{
-         //ItemWeight.splice(Count);
-         //ItemWeight.push(0);
-        //}
-       Count = Count + 1;
-   }
+        Count = Count + 1;
+        }
 
    console.log("<=========== Logging ItemWeights ===========>");
    console.log(ItemWeight);
@@ -121,8 +129,7 @@ function make_move() {
    if (rand < 4) return WEST; */
 
    //return PASS;
-}
-
+    }
 // Optionally include this function if you'd like to always reset to a 
 // certain board number/layout. This is useful for repeatedly testing your
 // bot(s) against known positions. 
