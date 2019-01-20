@@ -26,14 +26,14 @@ function make_move() {
    var CurrentGoalX = 0;
    var CurrentGoalY = 0;
 
-   while(Count < (WIDTH * HEIGHT))
+   while(Count < (WIDTH * HEIGHT - 1))
    {   
-       if(Count < WIDTH){
+       if(Count < HEIGHT){
         FruitAvailable.push(board[Count])
        }
        FruitPositionsX.push(CountX);
        FruitPositionsY.push(CountY);
-       if(CountY < WIDTH){
+       if(CountY < HEIGHT - 1){
         CountY = CountY + 1;
        }
        else{
@@ -74,7 +74,12 @@ function make_move() {
    while(Count < FruitDistances.length){
        if(board[FruitPositionsX[Count]],[FruitPositionsY[Count]]){
            ItemWeight.push(0.8/((.5 * get_total_item_count(FruitAvailableFinal[Count]))
-            * (3/(.5 * FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
+            * (5/(.5 * FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
+            if(ItemWeight[Count] == 0)
+            {
+                ItemWeight.splice(Count);
+                ItemWeight.push(0.05);
+            }
        }
        else{
         ItemWeight.push(0);
@@ -97,6 +102,7 @@ function make_move() {
    console.log("<=========== Logging Next Position ===========>");
    console.log(CurrentGoalX, CurrentGoalY);
 
+   CurrentGoalWeight = 0;
 
 
    console.log("<=========== Moving Bot ===========>")
