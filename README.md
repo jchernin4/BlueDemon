@@ -19,6 +19,10 @@ Possible (Move towards but not to)
 
 
 
+CODE TO ADD: && get_my_item_count(board[get_my_x()][get_my_y()]) <= (.5 * get_total_item_count(board[get_my_x()][get_my_y()])))
+
+
+
 
 # CURRENT OBJECTIVES
 
