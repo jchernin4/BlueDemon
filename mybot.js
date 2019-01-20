@@ -78,7 +78,7 @@ function make_move() {
    while(Count < FruitDistances.length - 1){
        if(FruitAvailableFinal[Count] != 0)
        {
-            ItemWeight.push((5/FruitDistances[Count]) * (3 * get_total_item_count(FruitAvailableFinal[Count]))/((get_my_item_count(FruitAvailableFinal[Count]) + 0.01)));
+            ItemWeight.push((5/FruitDistances[Count]) * (3 * get_total_item_count(FruitAvailableFinal[Count]))/((get_my_item_count(FruitAvailableFinal[Count]) + 0.01)) * (0.8/(.5 * get_total_item_count(FruitAvailable[Count]))));
             ItemWeightVar = ItemWeight[Count];
             if(EnemyFruitDistances[Count]/FruitDistances[Count] < 1 || isNaN(EnemyFruitDistances[Count]/FruitDistances[Count]))
             {
@@ -122,6 +122,7 @@ function make_move() {
 
 
    console.log("<=========== Moving Bot ===========>")
+   
    if (CurrentGoalX > get_my_x()) return EAST;
    if (CurrentGoalX < get_my_x()) return WEST;
    if (CurrentGoalY > get_my_y()) return SOUTH;
