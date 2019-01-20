@@ -28,7 +28,7 @@ function make_move() {
 
    while(Count < (WIDTH * HEIGHT - 1))
    {   
-       if(Count < HEIGHT){
+       if(Count < WIDTH){
         FruitAvailable.push(board[Count])
        }
        FruitPositionsX.push(CountX);
@@ -74,8 +74,7 @@ function make_move() {
    while(Count < FruitDistances.length){
        if(board[FruitPositionsX[Count]],[FruitPositionsY[Count]] > 0 && get_my_item_count(board[FruitPositionsX[Count]][FruitPositionsY[Count]]) <= (.5 * get_total_item_count(board[FruitPositionsX[Count]][FruitPositionsY[Count]])))
        {
-           ItemWeight.push(0.8/((.5 * get_total_item_count(FruitAvailableFinal[Count]))
-            * (5/(.5 * FruitDistances[Count]) * (EnemyFruitDistances[Count]/FruitDistances[Count]))));
+           ItemWeight.push(1/(.5 * (get_total_item_count(FruitAvailableFinal[Count])) * (5/(FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
             if(ItemWeight[Count] == 0)
             {
                 ItemWeight.splice(Count);
