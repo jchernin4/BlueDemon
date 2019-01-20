@@ -78,15 +78,15 @@ function make_move() {
           
          ItemWeight.push(1/(.5 * (get_total_item_count(FruitAvailableFinal[Count])) * (5/(FruitDistances[Count]))));
          ItemWeightVar = ItemWeight[Count];
-         if(EnemyFruitDistances[Count]/FruitDistances[Count] >= 1)
+         if(EnemyFruitDistances[Count]/FruitDistances[Count] < 1 || isNaN(EnemyFruitDistances[Count]/FruitDistances[Count]))
          {
             ItemWeight.splice(Count);
-            ItemWeight.push(ItemWeightVar * 1.5);
+            ItemWeight.push(ItemWeightVar * 0.5);
          }   
          else
          {
             ItemWeight.splice(Count);
-            ItemWeight.push(ItemWeightVar * 0.5);
+            ItemWeight.push(ItemWeightVar * 1.5);
          }
            if(ItemWeight[Count] == 0)
             {
