@@ -5,7 +5,8 @@ function make_move() {
    var board = get_board();
 
    // we found an item! take it!
-   if (board[get_my_x()][get_my_y()] > 0 && get_my_item_count(board[get_my_x()][get_my_y()]) <= (.5 * get_total_item_count(board[get_my_x()][get_my_y()]))) {
+   if (board[get_my_x()][get_my_y()] > 0)
+        //&& get_my_item_count(board[get_my_x()][get_my_y()]) <= (.5 * get_total_item_count(board[get_my_x()][get_my_y()]))) {
        return TAKE;
    }
 
