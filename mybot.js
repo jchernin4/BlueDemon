@@ -90,6 +90,11 @@ function make_move() {
              ItemWeight.splice(Count);
              ItemWeight.push(ItemWeightVar * 1.5);
             }
+            if(isNaN(ItemWeight[Count]))
+            {
+                ItemWeight.splice(Count);
+                ItemWeight.push(0.05);
+            }
        }
        else
        {
