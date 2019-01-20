@@ -25,6 +25,7 @@ function make_move() {
    var CurrentGoalWeight = 0;
    var CurrentGoalX = 0;
    var CurrentGoalY = 0;
+   var ItemWeightVar = 0;
 
    while(Count < (WIDTH * HEIGHT - 1))
    {   
@@ -74,8 +75,20 @@ function make_move() {
    while(Count < FruitDistances.length){
        if(board[FruitPositionsX[Count]],[FruitPositionsY[Count]] > 0 && get_my_item_count(board[FruitPositionsX[Count]][FruitPositionsY[Count]]) <= (.5 * get_total_item_count(board[FruitPositionsX[Count]][FruitPositionsY[Count]])))
        {
-           ItemWeight.push(1/(.5 * (get_total_item_count(FruitAvailableFinal[Count])) * (5/(FruitDistances[Count]) * (FruitDistances[Count]/EnemyFruitDistances[Count]))));
-            if(ItemWeight[Count] == 0)
+          
+         ItemWeight.push(1/(.5 * (get_total_item_count(FruitAvailableFinal[Count])) * (5/(FruitDistances[Count]))));
+         ItemWeightVar = ItemWeight[Count];
+         if(EnemyFruitDistances[Count]/FruitDistances[Count] >= 1)
+         {
+            ItemWeight.splice(Count);
+            ItemWeight.push(ItemWeightVar * 1.5);
+         }   
+         else
+         {
+            ItemWeight.splice(Count);
+            ItemWeight.push(ItemWeightVar * 0.5);
+         }
+           if(ItemWeight[Count] == 0)
             {
                 ItemWeight.splice(Count);
                 ItemWeight.push(0.05);
