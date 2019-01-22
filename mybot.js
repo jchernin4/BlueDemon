@@ -17,6 +17,7 @@ function make_move() {
    var FruitDistances = [];
    var ItemWeight = [];
    var EnemyFruitDistances = [];
+   var FruitNearby = [];
 
    var Count = 0;
    var CountX = 0;
@@ -27,6 +28,7 @@ function make_move() {
    var CurrentGoalX = 0;
    var CurrentGoalY = 0;
    var ItemWeightVar = 0;
+   var FruitNumber = 0;
 
    while(Count < (WIDTH * HEIGHT))
    {   
@@ -70,12 +72,31 @@ function make_move() {
    }
    FruitDistances.splice(Count);
    FruitDistances.push((DistanceX + DistanceY + 1.01));
+
+   if (FruitDistances.length > FruitPositionsX.length) FruitDistances.splice(0, 1);
+
    console.log("<=========== Logging FruitDistances ===========>");
    console.log(FruitDistances);
 
    Count = 0;
+   while(Count < FruitPositionsX.length){
+       CountX = -1;
+       CountY = -1;
+       while(CountY < 3)
+       {
+           if (FruitAvailable[Count + CountX + 1],[Count + CountY + 1] > 0) FruitNumber = FruitNumber + 1;
+           CountX = CountX + 1;
+           if (CountX > 1) CountY = CountY + 1;
+           if (CountX > 1) CountX = -1;
+       }
+       FruitNearby.push(FruitNumber);
+       FruitNumber = 0;
+       Count = Count + 1;
+   }
 
-   while(Count < FruitDistances.length - 1){
+   Count = 0;
+
+   while(Count < FruitDistances.length){
        if(FruitAvailableFinal[Count] != 0)
        {
             ItemWeight.push((5/FruitDistances[Count]) * (3 * get_total_item_count(FruitAvailableFinal[Count]))/((get_my_item_count(FruitAvailableFinal[Count]) + 0.01)) * (0.8/(.5 * get_total_item_count(FruitAvailableFinal[Count]))));
