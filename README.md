@@ -29,3 +29,5 @@ CODE TO ADD: * (0.5 * FruitNearby[Count])
 *Multiply Weight By 0 if no item present
 *Create a Weight Array
 *Determine Largest Weight
+
+40x40 board : 68875
