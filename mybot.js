@@ -121,12 +121,18 @@ function make_move() {
    CurrentGoalWeight = 0;
 
 
-   console.log("<=========== Moving Bot ===========>")
-   
-   if (CurrentGoalX > get_my_x()) return EAST;
-   if (CurrentGoalX < get_my_x()) return WEST;
-   if (CurrentGoalY > get_my_y()) return SOUTH;
-   if (CurrentGoalY < get_my_y()) return NORTH;
+   console.log("<=========== Moving Bot ===========>");
+
+   if(HEIGHT > WIDTH && CurrentGoalX != get_my_x()){
+    if (CurrentGoalX > get_my_x()) return EAST;
+    if (CurrentGoalX < get_my_x()) return WEST;
+   }
+   else{
+       if (CurrentGoalY > get_my_y()) return SOUTH;
+       if (CurrentGoalY < get_my_y()) return NORTH;
+       if (CurrentGoalX > get_my_x()) return EAST;
+       if (CurrentGoalX < get_my_x()) return WEST;
+   }
 
    return PASS;
 
