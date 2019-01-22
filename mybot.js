@@ -143,5 +143,5 @@ function make_move() {
 // certain board number/layout. This is useful for repeatedly testing your
 // bot(s) against known positions. 
 /* function default_board_number() {
-    return 366434;
+    return 927783;
 } */
