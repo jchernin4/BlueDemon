@@ -17,6 +17,7 @@ function make_move() {
    var FruitDistances = [];
    var ItemWeight = [];
    var EnemyFruitDistances = [];
+   var FruitNearby = [];
 
    var Count = 0;
    var CountX = 0;
@@ -27,6 +28,7 @@ function make_move() {
    var CurrentGoalX = 0;
    var CurrentGoalY = 0;
    var ItemWeightVar = 0;
+   var FruitNumber = 0;
 
    while(Count < (WIDTH * HEIGHT))
    {   
@@ -45,7 +47,6 @@ function make_move() {
        Count = Count + 1;
    }
 
-
    FruitAvailableFinal = [].concat.apply([], FruitAvailable);
 
    
@@ -62,10 +63,30 @@ function make_move() {
        Count = Count + 1;
    }
    FruitDistances.splice(Count);
+   FruitDistances.push((DistanceX + DistanceY + 1.01));
+
+   if (FruitDistances.length > FruitPositionsX.length) FruitDistances.splice(0, 1);
+
+
+   Count = 0;
+   while(Count < FruitPositionsX.length){
+       CountX = -1;
+       CountY = -1;
+       while(CountY < 3)
+       {
+           if (FruitAvailable[Count + CountX + 1],[Count + CountY + 1] > 0) FruitNumber = FruitNumber + 1;
+           CountX = CountX + 1;
+           if (CountX > 1) CountY = CountY + 1;
+           if (CountX > 1) CountX = -1;
+       }
+       FruitNearby.push(FruitNumber);
+       FruitNumber = 0;
+       Count = Count + 1;
+   }
 
    Count = 0;
 
-   while(Count < FruitDistances.length - 1){
+   while(Count < FruitDistances.length){
        if(FruitAvailableFinal[Count] != 0)
        {
             ItemWeight.push((5/FruitDistances[Count]) * (3 * get_total_item_count(FruitAvailableFinal[Count]))/((get_my_item_count(FruitAvailableFinal[Count]) + 0.01)) * (0.8/(.5 * get_total_item_count(FruitAvailableFinal[Count]))));
@@ -102,13 +123,21 @@ function make_move() {
    CurrentGoalX = (FruitPositionsX[ItemWeight.indexOf(CurrentGoalWeight)]);
    CurrentGoalY = (FruitPositionsY[ItemWeight.indexOf(CurrentGoalWeight)]);
 
+
    CurrentGoalWeight = 0;
 
-   
-   if (CurrentGoalX > get_my_x()) return EAST;
-   if (CurrentGoalX < get_my_x()) return WEST;
-   if (CurrentGoalY > get_my_y()) return SOUTH;
-   if (CurrentGoalY < get_my_y()) return NORTH;
+
+
+   if(HEIGHT > WIDTH && CurrentGoalX != get_my_x()){
+    if (CurrentGoalX > get_my_x()) return EAST;
+    if (CurrentGoalX < get_my_x()) return WEST;
+   }
+   else{
+       if (CurrentGoalY > get_my_y()) return SOUTH;
+       if (CurrentGoalY < get_my_y()) return NORTH;
+       if (CurrentGoalX > get_my_x()) return EAST;
+       if (CurrentGoalX < get_my_x()) return WEST;
+   }
 
    return PASS;
 
@@ -125,5 +154,5 @@ function make_move() {
 // certain board number/layout. This is useful for repeatedly testing your
 // bot(s) against known positions. 
 /* function default_board_number() {
-    return 366434;
+    return 927783;
 } */
