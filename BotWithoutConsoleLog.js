@@ -47,8 +47,9 @@ function make_move() {
        Count = Count + 1;
    }
 
-   FruitAvailableFinal = [].concat.apply([], FruitAvailable);
 
+
+   FruitAvailableFinal = [].concat.apply([], FruitAvailable);
    
    Count = 0;
 
@@ -91,6 +92,7 @@ function make_move() {
        {
             ItemWeight.push((5/FruitDistances[Count]) * (3 * get_total_item_count(FruitAvailableFinal[Count]))/((get_my_item_count(FruitAvailableFinal[Count]) + 0.01)) * (0.8/(.5 * get_total_item_count(FruitAvailableFinal[Count]))));
             ItemWeightVar = ItemWeight[Count];
+            ItemWeightVar = ItemWeightVar + (3 * FruitNearby[Count]);
             if(EnemyFruitDistances[Count]/FruitDistances[Count] < 1 || isNaN(EnemyFruitDistances[Count]/FruitDistances[Count]))
             {
                 ItemWeight.splice(Count);
@@ -123,10 +125,7 @@ function make_move() {
    CurrentGoalX = (FruitPositionsX[ItemWeight.indexOf(CurrentGoalWeight)]);
    CurrentGoalY = (FruitPositionsY[ItemWeight.indexOf(CurrentGoalWeight)]);
 
-
    CurrentGoalWeight = 0;
-
-
 
    if(HEIGHT > WIDTH && CurrentGoalX != get_my_x()){
     if (CurrentGoalX > get_my_x()) return EAST;
